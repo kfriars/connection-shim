@@ -1,9 +1,11 @@
-# A Laravel Connection implementation that allows you to persist the Schema Builder instance.
+# Laravel Connection Shim
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kfriars/connection-shim.svg?style=flat-square)](https://packagist.org/packages/kfriars/connection-shim)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/kfriars/connection-shim/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/kfriars/connection-shim/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/kfriars/connection-shim/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/kfriars/connection-shim/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/kfriars/connection-shim.svg?style=flat-square)](https://packagist.org/packages/kfriars/connection-shim)
+
+This package is a set of Laravel Connection implementations that allow you to persist the Schema Builder on the Connection instance.
 
 The Laravel Framework has hard-coded the schema builder into the connections, so if you want to customize the schema builder you would need to override the connection classes.
 
