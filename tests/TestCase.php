@@ -2,8 +2,8 @@
 
 namespace Kfriars\ConnectionShim\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Kfriars\ConnectionShim\ConnectionShimServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

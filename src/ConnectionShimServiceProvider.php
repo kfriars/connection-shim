@@ -25,7 +25,7 @@ class ConnectionShimServiceProvider extends ServiceProvider
             foreach ($this->app['config']['database.connections'] as $name => $config) {
                 $base = $factory->make($config, $name);
 
-                if (!in_array($config['driver'], ['sqlite', 'mysql', 'mariadb', 'pgsql', 'sqlsrv'])) {
+                if (! in_array($config['driver'], ['sqlite', 'mysql', 'mariadb', 'pgsql', 'sqlsrv'])) {
                     continue;
                 }
 
