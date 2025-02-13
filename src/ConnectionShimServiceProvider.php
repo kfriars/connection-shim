@@ -26,7 +26,7 @@ class ConnectionShimServiceProvider extends ServiceProvider
                 // Don't attempt to make Testbench's sqlite connection before it had a chance
                 // to configure itself. This issue is no longer present in current versions of
                 // testbench.
-                if ($config['driver'] === 'sqlite' && str_contains($config['database'], 'orchestra/testbench-core')) {
+                if ($config['driver'] === 'sqlite' && str_contains($config['database'], 'orchestra'.DIRECTORY_SEPARATOR.'testbench-core')) {
                     continue;
                 }
 
