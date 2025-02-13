@@ -23,11 +23,14 @@ class ConnectionShimServiceProvider extends ServiceProvider
             $factory = $this->app['db.factory'];
 
             foreach ($this->app['config']['database.connections'] as $name => $config) {
-                $base = $factory->make($config, $name);
-
-                if (! in_array($config['driver'], ['sqlite', 'mysql', 'mariadb', 'pgsql', 'sqlsrv'])) {
+                // Don't attempt to make Testbench's sqlite connection before it had a chance
+                // to configure itself. This issue is no longer present in current versions of
+                // testbench.
+                if ($config['driver'] === 'sqlite' && str_contains($config['database'], 'orchestra/testbench-core')) {
                     continue;
                 }
+
+                $base = $factory->make($config, $name);
 
                 $shimmed = match ($config['driver']) {
                     'sqlite' => new SQLiteConnectionShim($base->getRawPdo(), $base->getDatabaseName(), $base->getTablePrefix(), $config),
